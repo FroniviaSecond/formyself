@@ -1,38 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  width: 100vw;
+  height: 100px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.link {
+  text-decoration: none;
+  color: #000;
+  text-align: left;
+  transition: 0.3s;
+  transition-property: background-color;
+  padding: 16px 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.link:hover {
+  background-color: rgba(82, 78, 80, 0.26);
+}
+
+.link + .link {
+  margin-top: 20px;
+}
+
+.news-list {
+  width: full;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+@layer base {
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .main {
+    @apply h-[calc(100vh_-_100px)] w-full flex
   }
-  to {
-    transform: rotate(360deg);
+
+  .news-list__item {
+    @apply max-w-5xl h-auto border border-solid border-black flex flex-col w-full mt-10
+  }
+
+  .popups-container {
+    @apply w-full h-8 border border-solid border-black flex justify-between items-center p-4
+  }
+
+  .popup {
+    @apply w-80 h-20 rounded-lg flex flex-col justify-center items-center border border-solid border-black bg-white
   }
 }
